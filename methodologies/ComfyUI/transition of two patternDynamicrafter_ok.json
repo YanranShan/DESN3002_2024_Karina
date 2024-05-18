@@ -1,0 +1,1099 @@
+{
+  "last_node_id": 72,
+  "last_link_id": 139,
+  "nodes": [
+    {
+      "id": 45,
+      "type": "CLIPLoader",
+      "pos": [
+        3517.326544335935,
+        573.4176927860565
+      ],
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            90
+          ],
+          "shape": 3,
+          "label": "CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "model.safetensors",
+        "stable_diffusion"
+      ]
+    },
+    {
+      "id": 44,
+      "type": "CLIPSetLastLayer",
+      "pos": [
+        3519.326544335935,
+        702.4176927860565
+      ],
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 90,
+          "slot_index": 0,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            97,
+            98
+          ],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPSetLastLayer"
+      },
+      "widgets_values": [
+        -2
+      ]
+    },
+    {
+      "id": 66,
+      "type": "VAELoader",
+      "pos": [
+        3509.85950332031,
+        824.526228552658
+      ],
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            131,
+            132
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "vae-ft-mse-840000-ema-pruned.ckpt"
+      ]
+    },
+    {
+      "id": 50,
+      "type": "CLIPTextEncode",
+      "pos": [
+        3871.326544335935,
+        572.4176927860565
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 97,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            99
+          ],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "Digital art, changing lines, black background, black and white,"
+      ]
+    },
+    {
+      "id": 51,
+      "type": "CLIPTextEncode",
+      "pos": [
+        3868.326544335935,
+        824.4176927860565
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 98,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            100
+          ],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "bad quality, blurry, boring, nsfw, low res,"
+      ]
+    },
+    {
+      "id": 39,
+      "type": "DynamiCrafterLoader",
+      "pos": [
+        3513.326544335935,
+        402.41769278605665
+      ],
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            123
+          ],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "模型"
+        },
+        {
+          "name": "image_proj_model",
+          "type": "IMAGE_PROJ_MODEL",
+          "links": [
+            89
+          ],
+          "shape": 3,
+          "slot_index": 1,
+          "label": "图像推理模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DynamiCrafterLoader"
+      },
+      "widgets_values": [
+        "dynamicrafter_unet_512_interp.safetensors"
+      ]
+    },
+    {
+      "id": 43,
+      "type": "CLIPVisionLoader",
+      "pos": [
+        3509.85950332031,
+        294.5262285526582
+      ],
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CLIP_VISION",
+          "type": "CLIP_VISION",
+          "links": [
+            88
+          ],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "CLIP视觉"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPVisionLoader"
+      },
+      "widgets_values": [
+        "SD1.5\\pytorch_model.bin"
+      ]
+    },
+    {
+      "id": 60,
+      "type": "ImageBatch",
+      "pos": [
+        3269.85950332031,
+        344.5262285526582
+      ],
+      "size": {
+        "0": 210,
+        "1": 50
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 120,
+          "label": "图像1"
+        },
+        {
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 121,
+          "label": "图像2"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            122
+          ],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageBatch"
+      }
+    },
+    {
+      "id": 41,
+      "type": "ImageScale",
+      "pos": [
+        2789.85950332031,
+        294.5262285526582
+      ],
+      "size": {
+        "0": 320,
+        "1": 130
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 134,
+          "label": "图像",
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            120
+          ],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScale"
+      },
+      "widgets_values": [
+        "lanczos",
+        512,
+        512,
+        "disabled"
+      ]
+    },
+    {
+      "id": 59,
+      "type": "ImageScale",
+      "pos": [
+        3139.85950332031,
+        474.5262285526582
+      ],
+      "size": {
+        "0": 320,
+        "1": 130
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 133,
+          "label": "图像",
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            121
+          ],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScale"
+      },
+      "widgets_values": [
+        "lanczos",
+        512,
+        512,
+        "disabled"
+      ]
+    },
+    {
+      "id": 47,
+      "type": "KSampler",
+      "pos": [
+        4330,
+        380
+      ],
+      "size": [
+        320,
+        470
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 92,
+          "label": "模型"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 99,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 100,
+          "label": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 93,
+          "label": "Latent"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            94
+          ],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        322396823052027,
+        "randomize",
+        25,
+        8,
+        "dpm_2",
+        "sgm_uniform",
+        1
+      ]
+    },
+    {
+      "id": 70,
+      "type": "RIFE VFI",
+      "pos": [
+        4990,
+        240
+      ],
+      "size": [
+        270,
+        200
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "frames",
+          "type": "IMAGE",
+          "link": 137,
+          "label": "图像"
+        },
+        {
+          "name": "optional_interpolation_states",
+          "type": "INTERPOLATION_STATES",
+          "link": null,
+          "label": "插值规则(可选)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            136
+          ],
+          "shape": 3,
+          "label": "图像",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RIFE VFI"
+      },
+      "widgets_values": [
+        "rife47.pth",
+        10,
+        2,
+        true,
+        true,
+        1
+      ]
+    },
+    {
+      "id": 40,
+      "type": "DynamiCrafterProcessor",
+      "pos": [
+        3862.326544335935,
+        297.41769278605665
+      ],
+      "size": {
+        "0": 370,
+        "1": 210
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 123,
+          "label": "模型"
+        },
+        {
+          "name": "clip_vision",
+          "type": "CLIP_VISION",
+          "link": 88,
+          "label": "CLIP视觉"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 132,
+          "label": "VAE"
+        },
+        {
+          "name": "image_proj_model",
+          "type": "IMAGE_PROJ_MODEL",
+          "link": 89,
+          "label": "图像推理模型"
+        },
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 122,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            92
+          ],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "模型"
+        },
+        {
+          "name": "empty_latent",
+          "type": "LATENT",
+          "links": [
+            93
+          ],
+          "shape": 3,
+          "slot_index": 1,
+          "label": "空Latent"
+        },
+        {
+          "name": "latent_img",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3,
+          "slot_index": 2,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DynamiCrafterProcessor"
+      },
+      "widgets_values": [
+        true,
+        8,
+        16,
+        true
+      ]
+    },
+    {
+      "id": 68,
+      "type": "LoadImage",
+      "pos": [
+        2789.85950332031,
+        474.5262285526582
+      ],
+      "size": [
+        320,
+        310
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            134
+          ],
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "微信图片_20240506232626 (1).jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 48,
+      "type": "VAEDecode",
+      "pos": [
+        4680,
+        380
+      ],
+      "size": {
+        "0": 210,
+        "1": 50
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 94,
+          "label": "Latent"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 131,
+          "label": "VAE",
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            96,
+            137,
+            139
+          ],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 67,
+      "type": "LoadImage",
+      "pos": [
+        3149.85950332031,
+        664.526228552658
+      ],
+      "size": [
+        320,
+        310
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            133
+          ],
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "微信图片_20240506232644 (1).jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 69,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        4990,
+        480
+      ],
+      "size": [
+        280,
+        560
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 136,
+          "label": "图像"
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": null,
+          "label": "音频"
+        },
+        {
+          "name": "batch_manager",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "label": "批次管理"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3,
+          "label": "文件名"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "Krniktest",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "Krniktest_00017.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4"
+          }
+        }
+      }
+    },
+    {
+      "id": 49,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        4690,
+        480
+      ],
+      "size": [
+        280,
+        560
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 96,
+          "label": "图像"
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": null,
+          "label": "音频"
+        },
+        {
+          "name": "batch_manager",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "label": "批次管理"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3,
+          "label": "文件名"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 12,
+        "loop_count": 0,
+        "filename_prefix": "Krniktest",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "Krniktest_00001.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4"
+          }
+        }
+      }
+    },
+    {
+      "id": 72,
+      "type": "SaveImage",
+      "pos": [
+        5300,
+        480
+      ],
+      "size": [
+        220,
+        270
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 139,
+          "label": "图像"
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "Krniktest"
+      ]
+    }
+  ],
+  "links": [
+    [
+      88,
+      43,
+      0,
+      40,
+      1,
+      "CLIP_VISION"
+    ],
+    [
+      89,
+      39,
+      1,
+      40,
+      3,
+      "IMAGE_PROJ_MODEL"
+    ],
+    [
+      90,
+      45,
+      0,
+      44,
+      0,
+      "CLIP"
+    ],
+    [
+      92,
+      40,
+      0,
+      47,
+      0,
+      "MODEL"
+    ],
+    [
+      93,
+      40,
+      1,
+      47,
+      3,
+      "LATENT"
+    ],
+    [
+      94,
+      47,
+      0,
+      48,
+      0,
+      "LATENT"
+    ],
+    [
+      96,
+      48,
+      0,
+      49,
+      0,
+      "IMAGE"
+    ],
+    [
+      97,
+      44,
+      0,
+      50,
+      0,
+      "CLIP"
+    ],
+    [
+      98,
+      44,
+      0,
+      51,
+      0,
+      "CLIP"
+    ],
+    [
+      99,
+      50,
+      0,
+      47,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      100,
+      51,
+      0,
+      47,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      120,
+      41,
+      0,
+      60,
+      0,
+      "IMAGE"
+    ],
+    [
+      121,
+      59,
+      0,
+      60,
+      1,
+      "IMAGE"
+    ],
+    [
+      122,
+      60,
+      0,
+      40,
+      4,
+      "IMAGE"
+    ],
+    [
+      123,
+      39,
+      0,
+      40,
+      0,
+      "MODEL"
+    ],
+    [
+      131,
+      66,
+      0,
+      48,
+      1,
+      "VAE"
+    ],
+    [
+      132,
+      66,
+      0,
+      40,
+      2,
+      "VAE"
+    ],
+    [
+      133,
+      67,
+      0,
+      59,
+      0,
+      "IMAGE"
+    ],
+    [
+      134,
+      68,
+      0,
+      41,
+      0,
+      "IMAGE"
+    ],
+    [
+      136,
+      70,
+      0,
+      69,
+      0,
+      "IMAGE"
+    ],
+    [
+      137,
+      48,
+      0,
+      70,
+      0,
+      "IMAGE"
+    ],
+    [
+      139,
+      48,
+      0,
+      72,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "DynamiCrafter",
+      "bounding": [
+        2893,
+        185,
+        2368,
+        983
+      ],
+      "color": "#8AA",
+      "font_size": 24,
+      "locked": false
+    }
+  ],
+  "config": {},
+  "extra": {
+    "workspace_info": {
+      "id": "28f25731-d431-43a3-aab5-16a0ea40b623"
+    }
+  },
+  "version": 0.4
+}
